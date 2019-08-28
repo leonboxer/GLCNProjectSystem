@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'projects/style.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>detail of {{ project.id }}</title>
+</head>
+<body>
+<h1>{{ selected_project.project_number }}</h1>
+<ul>
+
+    {% for included_module in selected_project.included_module.all %}
+        <li>
+            <a href="detail.html">{{ included_module.module_name }}</a>
+        </li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'materials/style.css' %}"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>material list</title>
+</head>
+<body>
+{% for material in material_list %}
+    <li><a href="">{{ material.type }}</a></li>
+{% endfor %}
+</body>
+</html>
