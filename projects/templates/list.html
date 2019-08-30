@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 {% load static %}
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link rel="stylesheet" href="{% static 'projects/app.js' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'projects/style.css' %}">
+
 <html lang=" en">
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
+<div id="app">
+    {{ message }}
+</div>
 <ul>
+    <div id="app">
+        {{ message }}
+    </div>
     {% for project in project_list %}
         <li><a href="/projects/{{ project.id }}/">{{ project.project_number }}</a></li>
     {% endfor %}

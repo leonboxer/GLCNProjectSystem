@@ -1,8 +1,16 @@
 from django.shortcuts import render
 from .models import Project
+from .serializers import ProjectSerializer
+from rest_framework import generics
 
 
 # Create your views here.
+
+class ProjectList(generics.ListCreateAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+
 def list(request):
     project_list = Project.objects.all()
     context = {'project_list': project_list}
