@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'rest_framework',
+    'corsheaders',
     'projects.apps.ProjectsConfig',
     'materials.apps.MaterialsConfig',
     'modules.apps.ModulesConfig',
@@ -50,8 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'GLCNProjectSystem.urls'
 
 TEMPLATES = [
