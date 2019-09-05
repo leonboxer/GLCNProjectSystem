@@ -8,6 +8,7 @@ class Project(models.Model):
     project_number = models.CharField(max_length=20)
     machinery_type = models.CharField(max_length=10)
     included_module = models.ManyToManyField(Module, 'included_module')
+
     # included_material = models.ManyToManyField(Material, 'project_included_material')
     created_time = models.DateTimeField(auto_created=True)
     update_time = models.DateTimeField(auto_now=True)
