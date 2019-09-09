@@ -7,7 +7,7 @@ from .models import Project
 
 class ProjectAdmin(admin.ModelAdmin):
     # autocomplete_fields = ['included_module']
-    list_display = ['project_number', 'machinery_type', 'created_time']
+    list_display = ['pk','project_number', 'machinery_type', 'created_time']
     list_filter = ['machinery_type']
     search_fields = ['machinery_type']
 

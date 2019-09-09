@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "projects/css/style.css" %}" rel="stylesheet">
+</head>
+<body>
+<div id="sidebar">
+    <h2>GLCNProjectSystem</h2>
+</div>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

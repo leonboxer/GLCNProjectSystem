@@ -25,8 +25,8 @@ def list(request):
     return render(request, 'list.html', context)
 
 
-def detail(request, project_id):
+def detail(request, project_number):
     # target_project = Project.objects.get(id=project_id)
-    selected_project = Project.objects.get(id=project_id)
+    selected_project = Project.objects.get(project_number=project_number)
     context = {'selected_project': selected_project}
     return render(request, 'detail.html', context)

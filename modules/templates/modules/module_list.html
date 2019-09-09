@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for module in module_list %}
+    <ul>
+        <li>
+            <a href="/modules/{{ module.id }}">{{ module.module_name }}</a>
+        </li>
+    </ul>
+{% endfor %}
+</body>
+</html>

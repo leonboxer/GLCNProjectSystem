@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
+from modules import views
 
 urlpatterns = [
-    path('list/', views.list),
+    path('', views.ModuleList.as_view()),
+    path('<module_name>/', views.ModuleDetail.as_view(), name='module_detail')
 ]

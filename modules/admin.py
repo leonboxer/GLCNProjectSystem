@@ -1,10 +1,13 @@
 from django.contrib import admin
 from . import models
 
+
 # Register your models here.
-admin.site.register(models.Module)
-
-
 class ModuleAdmin(admin.ModelAdmin):
-    autocomplete_fields = ['brand']
+    list_display = ['module_name','created_time']
+    list_filter = ['created_time']
     autocomplete_fields = ['included_material']
+    # autocomplete_fields = ['included_material']
+
+
+admin.site.register(models.Module, ModuleAdmin)
