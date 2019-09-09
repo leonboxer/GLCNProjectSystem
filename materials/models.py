@@ -7,6 +7,7 @@ from django.db import models
 class Material(models.Model):
     brand = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
+    order_number=models.CharField(max_length=50,primary_key=True)
     created_time = models.DateTimeField(auto_now_add=True, blank=True)
     update_time = models.DateTimeField(auto_now=True, blank=True, name='update_time')
 

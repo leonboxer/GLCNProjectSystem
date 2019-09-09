@@ -11,7 +11,7 @@ class ModuleList(generic.ListView):
 
 class ModuleDetail(generic.DetailView):
     model = Module
-    template_name = 'detail.html'
+    template_name = 'modules/module_detail.html'
     # queryset = Module.objects.get(id=module_id)
 
 

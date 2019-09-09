@@ -12,7 +12,7 @@
 
     {% for included_module in selected_project.included_module.all %}
         <li>
-            <a href="/modules/{{ included_module.module_name}}">{{ included_module.module_name }}</a>
+            <a href="/modules/{{ included_module.pk }}">{{ included_module.module_name }}</a>
         </li>
     {% endfor %}
 

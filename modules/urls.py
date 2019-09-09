@@ -3,5 +3,5 @@ from modules import views
 
 urlpatterns = [
     path('', views.ModuleList.as_view()),
-    path('<module_name>/', views.ModuleDetail.as_view(), name='module_detail')
+    path('<pk>/', views.ModuleDetail.as_view(), name='module_detail')
 ]

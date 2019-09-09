@@ -5,9 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-{% for material in included_material %}
-    {{ material.material_name }}
+{% for material in module.included_material.all %}
+    <ul>
+        <li>
+            <a href="/materials/{{ material.type }}">{{ material.type }}</a>
+        </li>
+    </ul>
 {% endfor %}
-
 </body>
 </html>

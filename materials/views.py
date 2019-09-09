@@ -1,10 +1,12 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from .models import Material
+from django.views import generic
 
 
 # from django.http import  HttpResponse
-
+class MaterialDetail(generic.DetailView):
+    model = Material
 
 # Create your views here.
 def detail(request, material_id):
