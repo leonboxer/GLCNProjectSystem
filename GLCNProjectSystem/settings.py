@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'materials.apps.MaterialsConfig',
     'modules.apps.ModulesConfig',
     'tags.apps.TagsConfig'
+    'brands.apps.BrandsConfig'
 ]
 
 MIDDLEWARE = [
