@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<html lang=" en">
+
+<head>
+    <meta charset="UTF-8">
+    {% block stylesheets %}
+        {{ block.super }}
+    {% endblock %}
+    {% block title %}
+        1323
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+    {{ block.super }}
+    <ul>
+        {% for project in project_list %}
+            <li>
+                <a href="/projects/{{ project.project_number }}/">{{ project.project_number }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+</body>
+</html>

@@ -5,10 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-{% for material in module.included_material.all %}
+{% for module in module_list %}
     <ul>
         <li>
-            <a href="/materials/{{ material.pk }}">{{ material.order_number }}</a>
+            <a href="/modules/{{ module.id }}">{{ module.module_name }}</a>
         </li>
     </ul>
 {% endfor %}

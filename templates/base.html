@@ -2,17 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}{% endblock %}</title>
-    <link href="{% static "projects/css/style.css" %}" rel="stylesheet">
+    <title>{% block title %}GLCNProjectSystem{% endblock %}</title>
+    {% block stylesheet %}
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+    {% endblock %}
 </head>
 <body>
-<div id="sidebar">
-    <h2>GLCNProjectSystem</h2>
-</div>
 <div id="content">
     {% block content %}
     {% endblock %}
 </div>
-
+<div id="sidebar">
+    <h2>My blog</h2>
+    <p>This is my blog.</p>
+</div>
 </body>
 </html>

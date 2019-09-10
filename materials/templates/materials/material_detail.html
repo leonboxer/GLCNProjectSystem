@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail of {{ material.order_number }}</title>
+</head>
+
+<body>
+{% for field in material.field %}
+    <ul>
+        <li>
+            {{ field }}
+        </li>
+    </ul>
+{% endfor %}
+</body>
+</html>

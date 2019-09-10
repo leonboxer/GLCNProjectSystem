@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}detail of {{ selected_project.project_number }}{% endblock %}</title>
+    <style>
+        body {
+            background-color: #42fe49;
+        }
+
+        h2 {
+            color: #ff1222;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+    {{ block.super }}
+    <h2>{{ selected_project.project_number }}</h2>
+    <ul>
+        {% for included_module in selected_project.included_module.all %}
+            <li>
+                <a href="/modules/{{ included_module.pk }}">{{ included_module.module_name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+</body>
