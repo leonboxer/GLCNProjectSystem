@@ -10,7 +10,7 @@ class MaterialAdmin(admin.ModelAdmin):
     ]'''
     list_display = ['type', 'brand', 'created_time', 'update_time']
     list_filter = ['brand']
-    search_fields = ['brand', 'type']
+    search_fields = ['order_number']
 
 
 admin.site.register(Material, MaterialAdmin)

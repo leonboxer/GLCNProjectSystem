@@ -8,6 +8,7 @@ class BrandAdmin(admin.ModelAdmin):
         'brand_name', 'description', 'created_time', 'update_time'
     ]
     list_filter = ['created_time', 'update_time']
+    search_fields = ['brand_name']
 
 
 admin.site.register(Brand, BrandAdmin)

@@ -29,4 +29,4 @@ def detail(request, project_number):
     # target_project = Project.objects.get(id=project_id)
     selected_project = Project.objects.get(project_number=project_number)
     context = {'selected_project': selected_project}
-    return render(request, 'base.html', context)
+    return render(request, 'projects/detail.html', context)

@@ -13,10 +13,3 @@ class ModuleDetail(generic.DetailView):
     model = Module
     template_name = 'modules/module_detail.html'
     # queryset = Module.objects.get(id=module_id)
-
-
-def detail(request, module_id):
-    # target_project = Project.objects.get(id=project_id)
-    selected_project = Module.objects.get(id=module_id)
-    context = {'selected_project': selected_project}
-    return render(request, 'detail.html', context)
