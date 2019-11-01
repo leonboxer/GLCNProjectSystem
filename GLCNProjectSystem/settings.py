@@ -24,7 +24,7 @@ SECRET_KEY = '^5y6zrxm9if$mtikf5x@+79#*w22exs5cj0l4%pvol=y3k!-8d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.149', '127.0.0.1']
 
 # Application definition
 
@@ -124,3 +124,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0

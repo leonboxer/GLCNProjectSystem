@@ -8,9 +8,10 @@ class MaterialAdmin(admin.ModelAdmin):
         (None, {'fields': ['type']}),
         ('Date information', {'fields': ['brand']}),
     ]'''
-    list_display = ['type', 'brand', 'created_time', 'update_time']
+    list_display = ['order_number', 'type', 'brand', 'created_time', 'update_time']
     list_filter = ['brand']
-    search_fields = ['order_number']
+    search_fields = ['order_number', 'brand']
+    autocomplete_fields = ['brand']
 
 
 admin.site.register(Material, MaterialAdmin)

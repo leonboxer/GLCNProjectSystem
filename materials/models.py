@@ -7,7 +7,7 @@ from brands.models import Brand
 # Create your models here.
 class Material(models.Model):
     order_number = models.CharField(max_length=50, primary_key=True)
-    type = models.CharField(max_length=50)
+    type = models.CharField(max_length=50, blank=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='brand')
     created_time = models.DateTimeField(auto_now_add=True, blank=True)
     update_time = models.DateTimeField(auto_now=True, blank=True, name='update_time')

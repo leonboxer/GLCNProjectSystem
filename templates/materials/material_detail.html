@@ -11,8 +11,7 @@
     {% for element in module.element.all %}
         <ul>
             <li>
-                <a href="/tags/{{ element.tag.pk }}">{{ element.element_tag }}</a>|
-                <a href="/materials/{{ element.element_material.pk }}">{{ element.element_material }}</a>
+                <a href="/materials/{{ element.pk }}">{{ element }}</a>
             </li>
         </ul>
     {% endfor %}

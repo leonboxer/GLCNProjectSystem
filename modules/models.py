@@ -18,6 +18,7 @@ class Element(models.Model):
     def __str__(self):
         return self.element_tag.tag_number + "-" + self.element_material.order_number
 
+
 class Module(models.Model):
     module_name = models.ForeignKey(ModuleName, on_delete=models.CASCADE)
     element = models.ManyToManyField(Element)

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}detail of {{ selected_project.project_number }}{% endblock %}</title>
@@ -13,6 +14,14 @@
             <li>
                 <a href="/modules/{{ included_module.pk }}">{{ included_module.module_name }}</a>
             </li>
+            <form action="/projects/detail/" method="post">
+                {% csrf_token %}
+                <tr>
+                    {{ form.as_table }}
+                </tr>
+                <input type="submit" value="Submit">
+            </form>
+
         {% endfor %}
     </ul>
 {% endblock %}
