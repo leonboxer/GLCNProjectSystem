@@ -5,21 +5,14 @@
     <title>material upload</title>
 </head>
 <body>
-{% if messages %}
-    {% for message in messages %}
-        <div>
-            <strong>{{ message|safe }}</strong>
-        </div>
-    {% endfor %}
-{% else %}
-    {{ order }}
+{% extends 'base.html' %}
+
+{% block content %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label>Upload a file</label>
-        <input type="file" name="file">
-        <p>Only accepts CSV files</p>
+        <input type="file" name="myfile">
         <button type="submit">Upload</button>
     </form>
-{% endif %}
+{% endblock %}
 </body>
 </html>

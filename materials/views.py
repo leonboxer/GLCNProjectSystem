@@ -5,6 +5,8 @@ from .models import Material
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
+from tablib import Dataset
+from .resources import MaterialResource
 
 
 # from django.http import  HttpResponse
@@ -48,3 +50,18 @@ def material_upload(request):
         )
     context = {}
     return render(request, template, context)
+
+
+def simple_upload(request):
+    if request.method == 'POST':
+        tag_resource = MaterialResource()
+        dataset = Dataset()
+        new_persons = request.FILES['myfile']
+
+        imported_data = dataset.load(new_persons.read())
+        result = tag_resource.import_data(dataset, dry_run=True)  # Test the data import
+
+        if not result.has_errors():
+            tag_resource.import_data(dataset, dry_run=False)  # Actually import now
+
+    return render(request, 'materials/material_upload.html')

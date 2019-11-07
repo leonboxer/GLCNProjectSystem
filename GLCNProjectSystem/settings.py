@@ -35,15 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'rest_framework',
-    'corsheaders',
     'projects.apps.ProjectsConfig',
     'materials.apps.MaterialsConfig',
     'modules.apps.ModulesConfig',
     'tags.apps.TagsConfig',
-    'brands.apps.BrandsConfig'
+    'brands.apps.BrandsConfig',
+    'rest_framework',
+    'import_export',
 ]
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
