@@ -1,6 +1,7 @@
 from django.db import models
 from materials.models import Material
 from tags.models import Tag
+from elements.models import Element
 
 
 # Create your models here.
@@ -9,14 +10,6 @@ class ModuleName(models.Model):
 
     def __str__(self):
         return self.description
-
-
-class Element(models.Model):
-    element_tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
-    element_material = models.ForeignKey(Material, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.element_tag.tag_number + "-" + self.element_material.order_number
 
 
 class Module(models.Model):

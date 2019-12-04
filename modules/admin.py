@@ -1,5 +1,7 @@
 from django.contrib import admin
-from . import models
+from .models import Module, ModuleName
+from import_export.admin import ImportExportModelAdmin
+from import_export import resources
 
 
 # Register your models here.
@@ -14,12 +16,5 @@ class ModuleAdmin(admin.ModelAdmin):
     search_fields = ['module_name', 'element']
 
 
-class ElementAdmin(admin.ModelAdmin):
-    list_display = ['element_tag', 'element_material']
-    autocomplete_fields = ['element_tag', 'element_material']
-    search_fields = ['element_tag']
-
-
-admin.site.register(models.Module, ModuleAdmin)
-admin.site.register(models.Element, ElementAdmin)
-admin.site.register(models.ModuleName, ModuleNameAdmin)
+admin.site.register(Module, ModuleAdmin)
+admin.site.register(ModuleName, ModuleNameAdmin)

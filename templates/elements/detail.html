@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}detail of {{ selected_project.project_number }}{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+    {{ block.super }}
+    <h2>{{ selected_project.project_number }}</h2>
+    <ul>
+        {% for included_module in selected_project.included_module.all %}
+            <li>
+                <a href="/modules/{{ included_module.pk }}">{{ included_module.module_name }}</a>
+            </li>
+            <form action="/projects/detail/" method="post">
+                {% csrf_token %}
+                <tr>
+                    {{ form.as_table }}
+                </tr>
+                <input type="submit" value="Submit">
+            </form>
+
+        {% endfor %}
+    </ul>
+{% endblock %}
+</body>

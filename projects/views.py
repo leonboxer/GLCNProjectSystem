@@ -3,9 +3,6 @@ from django.views import generic
 from .models import Project
 from .serializers import ProjectSerializer
 from projects.forms import ProjectModelForm
-from rest_framework import generics, status
-from rest_framework.response import responses
-from braces.views import LoginRequiredMixin
 
 # Create your views here.
 

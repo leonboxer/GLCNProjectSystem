@@ -1,9 +1,8 @@
 from django.urls import path
-from .views import list, MaterialDetail, material_upload
+from .views import list, MaterialDetail
 
 urlpatterns = [
     path('list/', list, name='material_list'),
-    path('upload/', material_upload, name='material_upload'),
     path('<pk>/', MaterialDetail.as_view(), name='material_detail')
 
 ]

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'projects.apps.ProjectsConfig',
     'materials.apps.MaterialsConfig',
+    'elements.apps.ElementsConfig',
     'modules.apps.ModulesConfig',
     'tags.apps.TagsConfig',
     'brands.apps.BrandsConfig',

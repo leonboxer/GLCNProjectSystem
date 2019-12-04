@@ -17,7 +17,7 @@ class MaterialAdmin(ImportExportModelAdmin):
     resource_class = MaterialResource
     list_display = ['order_number', 'type', 'brand', 'created_time', 'update_time']
     list_filter = ['brand']
-    search_fields = ['order_number', 'brand']
     autocomplete_fields = ['brand']
-
+    search_fields = ['order_number', 'brand__brand_name']
+    
 # admin.site.register(Material, MaterialAdmin)
