@@ -7,13 +7,17 @@ from import_export.admin import ImportExportModelAdmin
 class BrandResource(resources.ModelResource):
     class Meta:
         model = Brand
-        exclude = ('id',)
+        # fields = ('brand_name', 'description')
+        exclude = ('created_time', 'update_time')
+        export_order = ('description', 'brand_name')
+        skip_unchanged = True
+        report_skipped = True
         import_id_fields = ['brand_name']
-        # fields = ('brand')
 
 
 # Register your models here.
 class BrandAdmin(ImportExportModelAdmin):
+    resource_class = BrandResource
     list_display = [
         'brand_name', 'description', 'created_time', 'update_time'
     ]

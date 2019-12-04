@@ -6,7 +6,6 @@ from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from tablib import Dataset
-from .resources import MaterialResource
 
 
 # from django.http import  HttpResponse
