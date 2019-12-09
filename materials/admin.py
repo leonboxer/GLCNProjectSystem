@@ -25,6 +25,7 @@ class MaterialResource(resources.ModelResource):
         if import_result.import_type == RowResult.IMPORT_TYPE_ERROR:
             # Copy the values to display in the preview report
             import_result.diff = [row[val] for val in row]
+            print(row)
             # Add a column with the error message
             import_result.diff.append('Errors: {}'.format([err.error for err in import_result.errors]))
             # clear errors and mark the record to skip
@@ -34,7 +35,7 @@ class MaterialResource(resources.ModelResource):
         return import_result
 
     class Meta:
-        import_id_fields = ('order_number',)
+        # import_id_fields = ('order_number',)
         model = Material
         skip_unchanged = True
         report_skipped = True
