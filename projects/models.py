@@ -1,4 +1,5 @@
 from django.db import models
+from elements.models import Element
 from modules.models import Module
 from materials.models import Material
 
@@ -16,7 +17,7 @@ class MachineryType(models.Model):
 class Project(models.Model):
     project_number = models.CharField(max_length=20, name='project_number')
     machinery_type = models.ForeignKey(MachineryType, on_delete=models.CASCADE)
-    included_module = models.ManyToManyField(Module, 'included_module')
+    included_element = models.ManyToManyField(Element, 'included_element')
 
     # included_material = models.ManyToManyField(Material, 'project_included_material')
     created_time = models.DateTimeField(auto_now=True)
