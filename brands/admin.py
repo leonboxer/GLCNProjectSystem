@@ -43,10 +43,11 @@ class BrandResource(resources.ModelResource):
 class BrandAdmin(ImportExportModelAdmin):
     resource_class = BrandResource
     list_display = [
-        'id', 'brand_name', 'description', 'created_time', 'update_time'
+        'id', 'brand_name', 'description', 'created', 'updated'
     ]
-    list_filter = ['created_time', 'update_time']
+    list_filter = ['created', 'updated']
     search_fields = ['brand_name']
+    prepopulated_fields = {'description': ('brand_name',)}
 
 
 admin.site.register(Brand, BrandAdmin)

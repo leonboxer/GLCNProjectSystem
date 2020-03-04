@@ -18,10 +18,11 @@ class Project(models.Model):
     project_number = models.CharField(max_length=20, name='project_number')
     machinery_type = models.ForeignKey(MachineryType, on_delete=models.CASCADE)
     included_element = models.ManyToManyField(Element, 'included_element')
+    created = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
 
-    # included_material = models.ManyToManyField(Material, 'project_included_material')
-    created_time = models.DateTimeField(auto_now=True)
-    update_time = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ('-created',)
 
     def __str__(self):
         return self.project_number

@@ -149,3 +149,4 @@ vue_frontend/src/App.vue
 vue_frontend/src/assets/
 vue_frontend/src/components/HelloWorld.vue
 vue_frontend/src/main.js
+.vscode
