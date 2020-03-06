@@ -14,17 +14,7 @@ class MaterialDetail(generic.DetailView):
     template_name = 'materials/material_detail.html'
 
 
-# Create your views here.
-def detail(request, material_id):
-    return HttpResponse("You are looking at material %s" % material_id)
-
-
 def list(request):
     material_list = Material.objects.all()
     context = {'material_list': material_list}
     return render(request, 'list.html', context)
-
-
-
-
-

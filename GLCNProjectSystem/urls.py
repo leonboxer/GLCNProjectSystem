@@ -16,4 +16,5 @@ urlpatterns = [
     path('projects/', include('projects.urls')),
     path('modules/', include('modules.urls')),
     path('', ProjectList.as_view(), name='index'),
+    path('account/', include('account.urls')),
 ]
