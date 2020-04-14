@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
     <title>{% block title %}GLCNProjectSystem{% endblock %}</title>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
-    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+    <script src="/static/node_modules/jquery/dist/jquery.slim.js"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="/static/node_modules/bootstrap-table/dist/bootstrap-table.min.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/starter-template/">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -18,17 +20,13 @@
     <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
     <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
     <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
-    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
 </head>
+
 <body>
-<br/>
-<br/>
-<br/>
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top margin-bottom: 1rem">
-    {#    <a class="navbar-brand" href="#">Navbar</a>#}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,18 +43,11 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/materials/">Material</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="/tags/">Tag</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+            <li class="nav-item active justify-content-end">
+                <a class="nav-link" href="/account/login/">Login</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -65,35 +56,14 @@
         </form>
     </div>
 </nav>
+<br/>
+<br/>
+<br/>
 <div class="container-fluid">
     <main role="main" class="col-md ml-sm-auto col-lg ">
         {% block content %}
         {% endblock %}
     </main>
-    {#      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">#}
-    {#        <h1 class="h2">Dashboard</h1>#}
-    {#        <div class="btn-toolbar mb-2 mb-md-0">#}
-    {#          <div class="btn-group mr-2">#}
-    {#            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>#}
-    {#            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>#}
-    {#          </div>#}
-    {#          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">#}
-    {#            <span data-feather="calendar"></span>#}
-    {#            This week#}
-    {#          </button>#}
-    {#        </div>#}
 </div>
-{##}
-{#      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>#}
-
-
-<!-- /.container -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-<script src="/docs/4.4/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
-        crossorigin="anonymous"></script>
 </body>
 </html>
