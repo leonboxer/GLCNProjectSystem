@@ -1,5 +1,5 @@
 tablib==2.0.0
-Django==2.0.13
+Django==2.2.13
 Djangorestframework==3.12.2
 django-import-export==2.4.0
 django-cors-headers==3.5.0
