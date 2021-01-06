@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@material-ui/icons": "^4.5.1",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "react-router-dom": "^5.1.2"
   }
 }
