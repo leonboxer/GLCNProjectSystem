@@ -3,7 +3,7 @@ from django.views import generic
 from .models import Project
 from .serializers import ProjectSerializer
 from projects.forms import ProjectModelForm
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 
 
 # Create your views here.
@@ -11,11 +11,12 @@ from rest_framework import viewsets
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all().order_by('-created')
     serializer_class = ProjectSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
-class ProjectList(generic.ListView):
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+# class ProjectList(generic.ListView):
+#     queryset = Project.objects.all()
+#     serializer_class = ProjectSerializer
 
 
 # def home(request):

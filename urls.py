@@ -1,7 +1,7 @@
 from django.conf.urls import include
 from django.urls import path
 # from projects import views
-from projects.views import ProjectList
+# from projects.views import ProjectList
 from django.contrib import admin
 from rest_framework import routers
 from projects import views

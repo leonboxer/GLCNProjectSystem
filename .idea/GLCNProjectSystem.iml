@@ -18,7 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/venv1" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (GLCNProjectSystem)" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bootstrap-table" level="application" />
     <orderEntry type="library" name="tableExport" level="application" />
@@ -34,7 +34,6 @@
     </option>
   </component>
   <component name="TestRunnerService">
-    <option name="projectConfiguration" value="Twisted Trial" />
     <option name="PROJECT_TEST_RUNNER" value="Twisted Trial" />
   </component>
 </module>
