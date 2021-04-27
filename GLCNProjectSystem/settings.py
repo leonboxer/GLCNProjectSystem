@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -35,17 +37,25 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+
+    'account.apps.AccountConfig',
     'projects.apps.ProjectsConfig',
     'materials.apps.MaterialsConfig',
     'elements.apps.ElementsConfig',
     'modules.apps.ModulesConfig',
     'tags.apps.TagsConfig',
     'brands.apps.BrandsConfig',
+
+    'corsheaders',
+
     'rest_framework',
+    'rest_framework.authtoken',
     'import_export',
+    'djoser',
 ]
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,9 +63,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+
 ]
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:9527",
+]
+CSRF_USE_SESSIONS = True
+CSRF_TRUSTED_ORIGINS = [
+    'localhost:9527/'
+]
+CSRF_COOKIE_SECURE = False
+
+AUTH_USER_MODEL = 'account.User'
 ROOT_URLCONF = 'GLCNProjectSystem.urls'
 
 TEMPLATES = [
@@ -127,12 +146,12 @@ STATICFILES_DIRS = (
 )
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
-    'PAGE_SIZE': 10
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
 
 REDIS_HOST = 'localhost'
