@@ -8,7 +8,7 @@ from .models import User
 # Register your models here.
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['roles','name', 'introduction', 'avatar']
+    list_display = ['name', 'introduction', 'avatar']
     list_filter = ['roles']
     search_fields = ['roles']
 

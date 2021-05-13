@@ -3,20 +3,32 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractUser):
-    Admin = 'admin'
-    Editor = 'editor'
-    ROLES_CHOICES = [
-        (Admin, 'admin'),
-        (Editor, 'editor'),
-    ]
-    roles = models.CharField(
-        max_length=10,
-        choices=ROLES_CHOICES,
-        default=Admin,
+class Role(models.Model):
+    '''
+    The Role entries are managed by the system,
+    automatically created via a Django data migration.
+    '''
+    ADMIN = 1
+    EDITOR = 2
+    USER = 3
+    SUPERVISOR = 4
+    ROLE_CHOICES = (
+        (ADMIN, 'admin'),
+        (EDITOR, 'editor'),
+        (USER, 'user'),
+        (SUPERVISOR, 'supervisor'),
     )
+
+    id = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, primary_key=True)
+
+    def __str__(self):
+        return self.get_id_display()
+
+
+class User(AbstractUser):
+    roles = models.ManyToManyField(Role)
     name = models.CharField(max_length=20, blank=True, null=True, name='name')
-    avatar = models.ImageField(blank=True, null=True,name='avatar')
+    avatar = models.ImageField(blank=True, null=True, name='avatar')
     introduction = models.TextField(max_length=100, blank=True, name='introduction')
 
     class Meta:
@@ -26,4 +38,4 @@ class User(AbstractUser):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
