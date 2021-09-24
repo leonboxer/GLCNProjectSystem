@@ -1,7 +1,6 @@
 djangorestframework==3.12.2
 tablib==2.0.0
-django-debug-toolbar==3.2.1
 Django==2.2.24
-django-import-export==2.4.0
 django-cors-headers==3.5.0
+django-debug-toolbar==3.2.1
 djoser==2.1.0
