@@ -16,5 +16,5 @@ class ModuleAdmin(admin.ModelAdmin):
     search_fields = ['module_name', 'element']
 
 
-admin.site.register(Module, ModuleAdmin)
-admin.site.register(ModuleName, ModuleNameAdmin)
+# admin.site.register(Module, ModuleAdmin)
+# admin.site.register(ModuleName, ModuleNameAdmin)

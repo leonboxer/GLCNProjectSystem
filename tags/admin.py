@@ -42,9 +42,9 @@ class TagResource(resources.ModelResource):
 
 class TagAdmin(ImportExportModelAdmin):
     resource_class = TagResource
-    list_display = ['id', 'tag_number', 'description', 'created_time', 'update_time']
-    list_filter = ['created_time', 'update_time']
-    search_fields = ['tag_number', 'description', 'created_time', 'update_time']
+    list_display = ['tag_number', 'description', 'created', 'updated']
+    list_filter = ['elements__material']
+    search_fields = ['tag_number', 'description', 'created', 'updated']
 
 
 admin.site.register(Tag, TagAdmin)

@@ -15,8 +15,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/venv1" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (GLCNProjectSystem)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -24,6 +24,10 @@
     <orderEntry type="library" name="tableExport" level="application" />
     <orderEntry type="library" name="bootstrap-table-locale-all" level="application" />
     <orderEntry type="library" name="bootstrap-table-export" level="application" />
+  </component>
+  <component name="PackageRequirementsSettings">
+    <option name="versionSpecifier" value="Strong equality (==x.y.z)" />
+    <option name="modifyBaseFiles" value="true" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

@@ -44,7 +44,7 @@ class ElementResource(resources.ModelResource):
 @admin.register(Element)
 class ElementAdmin(ImportExportModelAdmin):
     resource_class = ElementResource
-    list_display = ['element_tag', 'element_material']
-    list_filter = ['element_tag', 'element_material']
-    autocomplete_fields = ['element_tag', 'element_material']
-    search_fields = ['element_tag', 'element_material']
+    list_display = ['tag', 'material', ]
+    list_filter = ['tag', 'material', 'projects']
+    autocomplete_fields = ['tag', 'material']
+    search_fields = ['tag', 'material']

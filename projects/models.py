@@ -17,7 +17,7 @@ class MachineryType(models.Model):
 class Project(models.Model):
     project_number = models.CharField(max_length=20, name='project_number')
     machinery_type = models.ForeignKey(MachineryType, on_delete=models.CASCADE)
-    included_element = models.ManyToManyField(Element, 'included_element')
+    elements = models.ManyToManyField(Element, related_name='projects')
     created = models.DateTimeField(auto_now=True)
     updated = models.DateTimeField(auto_now=True)
 

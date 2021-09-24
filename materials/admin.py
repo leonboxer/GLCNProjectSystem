@@ -47,7 +47,9 @@ class MaterialResource(resources.ModelResource):
 @admin.register(Material)
 class MaterialAdmin(ImportExportModelAdmin):
     resource_class = MaterialResource
-    list_display = ['id', 'order_number', 'type', 'brand', 'created', 'updated']
-    list_filter = ['brand']
+    list_display = ['material_number','brand','order_number', 'type', ]
+    list_filter = ['brand','elements__tag']
     autocomplete_fields = ['brand']
     search_fields = ['order_number', 'brand__brand_name']
+    prepopulated_fields = {'type': ('order_number',)}
+

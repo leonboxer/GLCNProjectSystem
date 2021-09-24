@@ -12,9 +12,10 @@ class MachineryTypeAdmin(admin.ModelAdmin):
 
 class ProjectAdmin(admin.ModelAdmin):
     # autocomplete_fields = ['included_module']
-    list_display = ['pk', 'project_number', 'machinery_type', 'created']
-    list_filter = ['machinery_type']
+    list_display = ['project_number', 'machinery_type', 'created']
+    list_filter = ['machinery_type', 'elements', 'elements__tag', 'elements__material']
     search_fields = ['machinery_type']
+    filter_horizontal = ['elements']
     # autocomplete_fields = ['machinery_type', 'included_module']
 
 

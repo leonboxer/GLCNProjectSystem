@@ -1,0 +1,11 @@
+{% extends 'base_backup.html' %}
+{% block title %} add brand{% endblock %}
+{% block content %}
+    <h1>add brand</h1>
+    <p>添加品牌</p>
+    <form action="" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit">
+    </form>
+{% endblock %}

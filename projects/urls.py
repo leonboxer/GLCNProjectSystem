@@ -1,12 +1,16 @@
 from django.urls import path, include
 from projects import views
 from rest_framework import routers
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
-router = routers.DefaultRouter()
+# Create a router and register our viewsets with it.
+router = DefaultRouter()
+router.register(r'projects', views.ProjectViewSet)
 
+# The API URLs are now determined automatically by the router.
 urlpatterns = [
     # path('', include(router.urls)),
-    # path('api-projects/', include('rest_framework.urls', namespace='rest_framework')),
-    # path('', views.ProjectList.as_view()),
-    # path('<project_number>/', views.detail),
+    path('', views.ProjectList.as_view()),
+    # path('<project_number>/', detail),
 ]

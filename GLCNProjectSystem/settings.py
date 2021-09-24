@@ -1,3 +1,6 @@
+# TODO: modify debug=
+# TODO: token in url
+# TODO: secret key
 """
 Django settings for GLCNProjectSystem project.
 
@@ -14,7 +17,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -28,14 +30,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['65.49.220.31', '127.0.0.1']
 
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'grappelli',
     'django.contrib.admin',
 
     'account.apps.AccountConfig',
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
     'modules.apps.ModulesConfig',
     'tags.apps.TagsConfig',
     'brands.apps.BrandsConfig',
+    'excel.apps.ExcelConfig',
 
     'corsheaders',
 
@@ -52,7 +55,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'import_export',
     'djoser',
+    'debug_toolbar',
+
 ]
+GRAPPELLI_SWITCH_USER = True
+GRAPPELLI_ADMIN_TITLE = 'GPAPPLELLI test'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -69,6 +76,8 @@ CACHE_TTL = 60 * 15
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 MIDDLEWARE = [
+    'GLCNProjectSystem.middleware.timeit_middleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,6 +87,22 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+]
+LOGIN_URL = "/admin/login/"
+OPEN_URLS = ["/admin/"]
+
+FILE_UPLOAD_HANDLERS = (
+    "django_excel.ExcelMemoryFileUploadHandler",
+    "django_excel.TemporaryExcelFileUploadHandler",
+)
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = '65.49.220.31/var/'
+MEDIA_URL = '/media/'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:9527",
@@ -115,8 +140,14 @@ WSGI_APPLICATION = 'GLCNProjectSystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
+        'NAME': 'GLCNProjectSystem',  # 数据库名
+        'USER': 'root',  # 账户名
+        'PASSWORD': 'ffY4lo4t',  # 密码
+        'HOST': 'localhost',  # 主机
+        'PORT': '',  # 端口
+    },
+    'OPTIONS': {
     }
 }
 
@@ -155,17 +186,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_FILTER_BACKENDS': ['rest_framework.filters.SearchFilter', 'rest_framework.filters.OrderingFilter'],
+    'ORDERING_PARAM': 'sort',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20
 }
 
 REDIS_HOST = 'localhost'

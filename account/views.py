@@ -1,12 +1,11 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.views.generic import CreateView
 from rest_framework.decorators import api_view
 
 from .forms import UserRegistrationForm
 from .forms import LoginForm
-
-from django.shortcuts import render
 
 from .models import User
 from .serializers import UserSerializer, GroupSerializer
@@ -26,15 +25,14 @@ def current_user(request):
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
 
-class UserViewSet(viewsets.ViewSet):
-    def list(self, request):
-        queryset = User.objects.all()
-        serializer = UserSerializer(queryset, many=True)
-        return Response(serializer.data)
 
-    def retrieve(self, request, pk=None):
-        serializer = UserSerializer(request.user)
-        return Response(serializer.data)
+class UserViewSet(viewsets.ModelViewSet):
+    """
+        A viewset for viewing and editing user instances.
+        """
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+
 
 class UserInfo(APIView):
     print('before def get')
@@ -45,9 +43,11 @@ class UserInfo(APIView):
         print(serializer.data)
         return Response(serializer.data)
 
+
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
 
 class GroupViewSet(viewsets.ModelViewSet):
     """
@@ -57,6 +57,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
+
 
 class CustomAuthToken(ObtainAuthToken):
 
@@ -74,7 +75,8 @@ class CustomAuthToken(ObtainAuthToken):
 
         })
 
-def register(request):
+
+def register_backup(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -91,6 +93,12 @@ def register(request):
     return render(request,
                   'account/register.html',
                   {'user_form': user_form})
+
+
+class UserRegister(CreateView):
+    form_class = UserRegistrationForm
+    template_name = 'account/register.html'
+
 
 def user_login(request):
     if request.method == 'POST':

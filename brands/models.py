@@ -5,8 +5,12 @@ from django.db import models
 class Brand(models.Model):
     brand_name = models.CharField(max_length=30, blank=False, unique=True)
     description = models.CharField(max_length=100, verbose_name='描述')
-    created = models.DateTimeField(auto_now=True)
-    updated = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('brand-detail', kwargs={'pk': self.pk})
 
     class Meta:
         ordering = ('brand_name',)
