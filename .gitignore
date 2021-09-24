@@ -59,8 +59,8 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
+*.sqlite3
+*.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -127,18 +127,6 @@ dmypy.json
 
 .gitignore
 .vscode/
-GLCNProjectSystem/__pycache__/
-brands/__pycache__/
-brands/migrations/0001_initial.py
-brands/migrations/__pycache__/
-materials/__pycache__/
-materials/migrations/__pycache__/
-modules/__pycache__/
-modules/migrations/__pycache__/
-projects/__pycache__/
-projects/migrations/__pycache__/
-tags/__pycache__/
-tags/migrations/__pycache__/
 vue_frontend/.gitignore
 vue_frontend/README.md
 vue_frontend/babel.config.js
@@ -150,3 +138,4 @@ vue_frontend/src/assets/
 vue_frontend/src/components/HelloWorld.vue
 vue_frontend/src/main.js
 .vscode
+/.history/
