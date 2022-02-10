@@ -7,7 +7,7 @@ coreschema==0.0.4
 cryptography==3.4.6
 defusedxml==0.6.0
 diff-match-patch==20200713
-Django==3.2.3
+Django==3.2.12
 django-cors-headers==3.5.0
 django-debug-toolbar==3.2.1
 django-grappelli==2.15.1
